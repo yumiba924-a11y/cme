@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>証券アナリスト試験 4/26 — 全体戦略マップ</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,'Hiragino Sans',sans-serif;background:#f5f4f0;color:#2c2c2a;line-height:1.7;padding:20px}
+.container{max-width:800px;margin:0 auto}
+header{text-align:center;padding:32px 0 24px}
+header h1{font-size:22px;font-weight:600;margin-bottom:4px}
+header p{font-size:13px;color:#5f5e5a}
+.summary{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px}
+.scard{background:#fff;border-radius:10px;padding:14px;text-align:center;border:1px solid #e8e6e0}
+.scard .num{font-size:24px;font-weight:600}
+.scard .lbl{font-size:11px;color:#888780;margin-top:2px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:28px;font-size:12px;color:#5f5e5a}
+.legend span{display:flex;align-items:center;gap:4px}
+.dot{width:10px;height:10px;border-radius:50%;display:inline-block}
+.section{margin-bottom:28px}
+.section-head{font-size:18px;font-weight:600;padding:8px 0;margin-bottom:12px;border-bottom:2px solid #2c2c2a}
+.kamoku-label{font-size:13px;color:#fff;display:inline-block;padding:2px 10px;border-radius:4px;margin-bottom:12px;font-weight:500}
+.kamoku-ii{background:#534AB7}
+.kamoku-iii{background:#0F6E56}
+.rank-label{font-size:14px;font-weight:600;margin:20px 0 8px;padding:4px 12px;border-radius:6px;display:inline-block}
+.rank-s{background:#FCEBEB;color:#A32D2D}
+.rank-a{background:#FAEEDA;color:#854F0B}
+.rank-b{background:#E6F1FB;color:#185FA5}
+.rank-c{background:#F1EFE8;color:#5f5e5a}
+.rank-d{background:#F1EFE8;color:#888780}
+
+.card{background:#fff;border:1px solid #e8e6e0;border-radius:10px;margin-bottom:8px;overflow:hidden;transition:box-shadow .2s}
+.card:hover{box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.card-header{display:flex;align-items:center;padding:12px 16px;cursor:pointer;user-select:none;gap:10px}
+.card-header:hover{background:#faf9f7}
+.arrow{font-size:12px;color:#888;transition:transform .2s;flex-shrink:0}
+.card.open .arrow{transform:rotate(90deg)}
+.card-title{flex:1;font-weight:600;font-size:14px}
+.card-meta{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.badge{padding:2px 8px;border-radius:10px;font-size:11px;font-weight:500}
+.b-know{background:#E1F5EE;color:#0F6E56}
+.b-calc{background:#FAEEDA;color:#854F0B}
+.b-both{background:#EEEDFE;color:#534AB7}
+.count-badge{font-size:12px;color:#5f5e5a;font-weight:500}
+.card-body{display:none;padding:0 16px 16px;font-size:13px;line-height:1.8}
+.card.open .card-body{display:block}
+.map-box{background:#faf9f7;border:1px solid #e8e6e0;border-radius:8px;padding:14px 16px;margin:10px 0;font-family:'SF Mono',monospace;font-size:12px;line-height:1.6;white-space:pre-wrap;overflow-x:auto}
+.point{background:#FFF8E1;border-left:3px solid #EF9F27;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:12px}
+.point-red{background:#FFF0F0;border-left:3px solid #E24B4A}
+.trap{background:#F0F4FF;border-left:3px solid #378ADD;padding:8px 12px;margin:8px 0;border-radius:0 6px 6px 0;font-size:12px}
+.sub-title{font-weight:600;font-size:13px;margin:12px 0 4px;color:#2c2c2a}
+table.inner{width:100%;border-collapse:collapse;font-size:12px;margin:8px 0}
+table.inner th,table.inner td{padding:6px 8px;text-align:left;border-bottom:1px solid #f0eeea}
+table.inner th{background:#faf9f7;font-weight:600;color:#5f5e5a}
+.status-bar{display:flex;align-items:center;gap:6px;margin:8px 0}
+.bar-track{flex:1;height:6px;background:#f0eeea;border-radius:3px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px}
+.phase-section{margin-top:28px}
+.phase-card{background:#fff;border:1px solid #e8e6e0;border-radius:10px;padding:16px 18px;margin-bottom:10px}
+.phase-card h3{font-size:15px;font-weight:600;margin-bottom:2px}
+.phase-card .dates{font-size:12px;color:#888;margin-bottom:8px}
+.phase-card p{font-size:13px;color:#444}
+.footer{text-align:center;padding:20px;font-size:12px;color:#888}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+<h1>証券アナリスト試験 4/26 — 全体戦略マップ</h1>
+<p>科目II（会計・財務・企業分析）+ 科目III（経済・金融）｜ 全分野の構造地図</p>
+</header>
+
+<div class="summary">
+<div class="scard"><div class="num">23</div><div class="lbl">残り日数</div></div>
+<div class="scard"><div class="num">2</div><div class="lbl">科目</div></div>
+<div class="scard"><div class="num">17</div><div class="lbl">分野</div></div>
+<div class="scard"><div class="num">~1,120</div><div class="lbl">過去問</div></div>
+</div>
+
+<div class="legend">
+<span><span class="dot" style="background:#E24B4A"></span>要集中</span>
+<span><span class="dot" style="background:#EF9F27"></span>要復習</span>
+<span><span class="dot" style="background:#378ADD"></span>維持</span>
+<span><span class="dot" style="background:#639922"></span>定着済</span>
+<span><span class="dot" style="background:#888"></span>捨て</span>
+</div>
+
+<!-- ============================================ -->
+<!-- 科目 II -->
+<!-- ============================================ -->
+<div class="section">
+<span class="kamoku-label kamoku-ii">科目II — 会計・財務・企業分析（427問）</span>
+
+<!-- S RANK -->
+<div class="rank-label rank-s">Sランク — ここを取れば合否が変わる（~106問）</div>
+
+<!-- 1. 退職給付 -->
+<div class="card" id="c1">
+<div class="card-header" onclick="toggle('c1')">
+<span class="arrow">▶</span>
+<span class="card-title">① 退職給付</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~18問</span>
+<span class="dot" style="background:#E24B4A"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">全体構造 — 登場人物マップ</div>
+<div class="map-box">【舞台】会社が従業員に「辞めたら退職金払う」と約束 → 社外に積立・運用
+
+┌──────────────────────────────────────────┐
+│            退職給付の全体構造              │
+│                                          │
+│  【負債側】             【資産側】        │
+│  退職給付債務(PBO)      年金資産          │
+│  ＝将来払う退職金の     ＝社外に積立てた  │
+│    現在価値               お金（運用中）  │
+│                                          │
+│  BS計上額 ＝ PBO − 年金資産              │
+│  （足りない分が負債として載る）           │
+└──────────────────────────────────────────┘</div>
+
+<div class="sub-title">PBOの増減</div>
+<div class="map-box">PBO期首残高
+  ＋ 勤務費用（きんむひよう）… 今年1年働いた分
+  ＋ 利息費用（りそくひよう）… PBO × 割引率（時間経過分）
+  ＋ 過去勤務費用 … 退職金水準を変えた時の差額
+  ± 数理差異   … 見積りと実績のズレ
+  − 退職給付支払 … 実際に辞めた人に払った分
+＝ PBO期末残高</div>
+
+<div class="sub-title">年金資産の増減</div>
+<div class="map-box">年金資産期首残高
+  ＋ 期待運用収益 … 運用で増える見込み額
+  ＋ 事業主拠出   … 会社が追加で積んだお金
+  − 退職給付支払 … ここから実際に払う
+  ± 数理差異    … 運用実績と期待のズレ
+＝ 年金資産期末残高</div>
+
+<div class="sub-title">PLに載る退職給付費用（最頻出）</div>
+<div class="map-box">退職給付費用 ＝ 勤務費用
+             ＋ 利息費用
+             − 期待運用収益
+             ＋ 過去勤務費用の当期償却額
+             ＋ 数理差異の当期償却額</div>
+
+<div class="point">掛金拠出 → 年金資産が増えるだけ。費用は変わらない</div>
+<div class="point">過去勤務費用・数理差異 → 一括じゃなく按分して費用処理</div>
+<div class="point">割引率が低い → PBOは大きくなる（割る数が小さい＝現在価値↑）</div>
+<div class="point">割引率が高い → 勤務費用+利息費用の合計は小さくなる</div>
+</div>
+</div>
+
+<!-- 2. 減価償却 -->
+<div class="card" id="c2">
+<div class="card-header" onclick="toggle('c2')">
+<span class="arrow">▶</span>
+<span class="card-title">② 減価償却</span>
+<span class="badge b-calc">計算多め</span>
+<span class="count-badge">~20問</span>
+<span class="dot" style="background:#E24B4A"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">3つの方法</div>
+<table class="inner">
+<tr><th>方法</th><th>特徴</th><th>計算式</th></tr>
+<tr><td>定額法</td><td>毎年同じ額</td><td>(取得原価−残存価額) ÷ 耐用年数</td></tr>
+<tr><td>定率法</td><td>最初多い→だんだん減る</td><td>期首帳簿価額 × 一定率</td></tr>
+<tr><td>生産高比例法</td><td>使った分だけ</td><td>(取得原価−残存) × 当期利用量 ÷ 総利用可能量</td></tr>
+</table>
+<div class="trap">試験トラップ：定率法は「時間とともに増加」→ ウソ。逆に減少する</div>
+<div class="point">土地 → 減価償却しない</div>
+<div class="point">建設仮勘定 → まだ完成してないから減価償却しない</div>
+<div class="point">耐用年数の変更 → 過去に遡らない（将来に向けて変更）</div>
+<div class="point">取替法 → 総利用可能量が物理的に確定でき、減価が利用に伴うもの（生産高比例法の要件と混同注意）</div>
+</div>
+</div>
+
+<!-- 3. 棚卸資産 -->
+<div class="card" id="c3">
+<div class="card-header" onclick="toggle('c3')">
+<span class="arrow">▶</span>
+<span class="card-title">③ 棚卸資産</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~18問</span>
+<span class="dot" style="background:#E24B4A"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">評価方法</div>
+<table class="inner">
+<tr><th>方法</th><th>考え方</th></tr>
+<tr><td>先入先出法（FIFO）</td><td>先に仕入れたものから先に出ていく</td></tr>
+<tr><td>総平均法</td><td>期間全体の平均単価で計算</td></tr>
+<tr><td>移動平均法</td><td>仕入れるたびに平均単価を更新</td></tr>
+</table>
+<div class="sub-title">棚卸減耗 vs 評価損</div>
+<div class="map-box">棚卸減耗＝帳簿上の数量 − 実地棚卸の数量（物理的に消えた分）
+評価損  ＝原価 − 正味売却価額（価値が下がった分）
+
+→ 棚卸減耗は「数量の差」、評価損は「単価の差」</div>
+<div class="point">取得原価 ＝ 購入代価 ＋ 付随費用（引取費用など）</div>
+<div class="point">消耗品・貯蔵品 → 棚卸資産に含まれる</div>
+<div class="point">借入金利息 → 取得原価に算入「できる」（義務ではない）</div>
+</div>
+</div>
+
+<!-- 4. 収益認識 -->
+<div class="card" id="c4">
+<div class="card-header" onclick="toggle('c4')">
+<span class="arrow">▶</span>
+<span class="card-title">④ 収益認識</span>
+<span class="badge b-know">知識中心</span>
+<span class="count-badge">~18問</span>
+<span class="dot" style="background:#E24B4A"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">5ステップアプローチ</div>
+<div class="map-box">Step 1: 契約の識別
+Step 2: 履行義務の識別
+Step 3: 取引価格の決定
+Step 4: 取引価格の配分（複数の履行義務がある場合）
+Step 5: 履行義務の充足時に収益認識</div>
+<div class="sub-title">充足タイミングの2パターン</div>
+<div class="map-box">一時点で充足 → 引渡時に一括計上（商品の販売など）
+一定期間にわたり充足 → 進捗度に応じて計上（工事契約など）
+  └ 旧基準の「工事進行基準」に相当</div>
+<div class="point">前受金をもらっても、引渡し前なら売上計上しない</div>
+<div class="point">工事進行基準：当期の収益 ＝ 収益総額 × 進捗度</div>
+<div class="point">収益認識基準は金融商品の取引には適用されない</div>
+<div class="trap">満期保有債券の取得差額 → 償却原価法で期間配分（一括で損益処理しない）</div>
+</div>
+</div>
+
+<!-- 5. BS/PL表示ルール -->
+<div class="card" id="c5">
+<div class="card-header" onclick="toggle('c5')">
+<span class="arrow">▶</span>
+<span class="card-title">⑤ BS / PL 表示ルール</span>
+<span class="badge b-know">知識</span>
+<span class="count-badge">~18問</span>
+<span class="dot" style="background:#E24B4A"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">BSの構造</div>
+<div class="map-box">【資産の部】              【負債の部】
+ 流動資産                  流動負債
+  現金・売掛金・棚卸資産    買掛金・短期借入・未払金
+  販売用不動産（←注意!）    1年以内返済の長期借入金
+ 固定資産                  固定負債
+  有形（建物・機械・土地）   長期借入金
+  無形（のれん・ｿﾌﾄｳｪｱ）   退職給付に係る負債
+  投資その他（繰延税金資産） 繰延税金負債
+                          【純資産の部】
+                           株主資本
+                           その他の包括利益累計額
+                           新株予約権・非支配株主持分</div>
+<div class="trap">販売用不動産 → 流動資産（不動産業の場合）</div>
+<div class="trap">研究開発費 → 資産計上不可（全額費用処理）</div>
+<div class="point">ソフトウェア → 無形固定資産に計上できる</div>
+<div class="point">1年基準：支払/回収が1年以内 → 流動、1年超 → 固定</div>
+<div class="point">買掛金は正常営業循環基準で1年超でも流動負債</div>
+</div>
+</div>
+
+<!-- 6. 税効果会計 -->
+<div class="card" id="c6">
+<div class="card-header" onclick="toggle('c6')">
+<span class="arrow">▶</span>
+<span class="card-title">⑥ 税効果会計</span>
+<span class="badge b-know">知識中心</span>
+<span class="count-badge">~14問</span>
+<span class="dot" style="background:#E24B4A"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">なぜ存在する？</div>
+<div class="map-box">会計上の利益 ≠ 税務上の課税所得（ズレが発生）
+→ このズレを調整してPLで税引前利益と税金費用を対応させる仕組み</div>
+<div class="sub-title">ズレの分類</div>
+<div class="map-box">┌─────────────────────────────────────────────┐
+│ 「将来、税務上も認められる日が来る？」        │
+│                                              │
+│  YES → 一時差異（税効果の対象）               │
+│  NO  → 永久差異（対象外、スルー）             │
+└─────────────────────────────────────────────┘</div>
+<div class="sub-title">一時差異の2タイプ</div>
+<div class="map-box">将来減算一時差異（今多く払ってる → 将来減る）
+  → 繰延税金「資産」
+  → 例: 貸倒引当金超過、賞与引当金、事業税、
+        退職給付引当金、減価償却超過額
+
+将来加算一時差異（今少なく払ってる → 将来増える）
+  → 繰延税金「負債」
+  → 例: 特別償却、その他有価証券評価差額金（評価益）</div>
+<div class="sub-title">永久差異（対象外）— この3つだけ覚える</div>
+<div class="map-box">・交際費の損金不算入
+・受取配当金の益金不算入
+・寄付金の損金不算入限度超過額</div>
+<div class="point">繰延税金資産は毎期末に回収可能性を判断する</div>
+<div class="point">将来減算一時差異 → 繰延税金「資産」（資と減の組合せ）</div>
+<div class="point">将来加算一時差異 → 繰延税金「負債」（負と加の組合せ）</div>
+<div class="trap">賞与引当金 → 一時差異（永久差異ではない！税務上は支払時に損金）</div>
+<div class="trap">その他有価証券評価差額金 → 純資産直入でも一時差異（永久差異ではない）</div>
+</div>
+</div>
+
+<!-- A RANK -->
+<div class="rank-label rank-a">Aランク — 落とすと痛い（~52問）</div>
+
+<!-- 7. 連結会計 -->
+<div class="card" id="c7">
+<div class="card-header" onclick="toggle('c7')">
+<span class="arrow">▶</span>
+<span class="card-title">⑦ 連結会計</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~16問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">連結の基本構造</div>
+<div class="map-box">親会社 + 子会社 = グループ全体を1つの企業とみなしてFS作成
+
+【連結の手順】
+1. 親子のFS合算
+2. 投資と資本の相殺消去（親の子会社株式 vs 子の純資産）
+3. 内部取引の消去（グループ内の売上・仕入・債権債務）
+4. 未実現利益の消去（グループ内で売った在庫の利益）
+5. のれんの計上・償却</div>
+<div class="sub-title">のれん</div>
+<div class="map-box">のれん ＝ 取得原価（親が払った額）− 子の純資産の時価 × 持分比率
+
+・BSの無形固定資産に計上
+・20年以内に規則的に償却（日本基準）
+・IFRSでは非償却・減損テスト</div>
+<div class="point">非支配株主持分 ＝ 子会社の純資産 × 親が持ってない割合</div>
+<div class="point">当期純利益は「親会社株主に帰属する当期純利益」として表示</div>
+</div>
+</div>
+
+<!-- 8. EPS/PER -->
+<div class="card" id="c8">
+<div class="card-header" onclick="toggle('c8')">
+<span class="arrow">▶</span>
+<span class="card-title">⑧ EPS / PER</span>
+<span class="badge b-calc">計算中心</span>
+<span class="count-badge">~14問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="map-box">EPS（1株当たり当期純利益, Earnings Per Share）
+＝ 親会社株主に帰属する当期純利益 ÷ 期中平均発行済株式数
+
+PER（株価収益率, Price Earnings Ratio）
+＝ 株価 ÷ EPS
+
+BPS（1株当たり純資産, Book value Per Share）
+＝ 純資産 ÷ 期末発行済株式数
+
+PBR（株価純資産倍率, Price Book-value Ratio）
+＝ 株価 ÷ BPS</div>
+<div class="point">自己株式は発行済株式数から控除する</div>
+<div class="point">期中に増資があった場合 → 月数按分で期中平均を計算</div>
+<div class="point">希薄化後EPS → 新株予約権等の潜在株式を考慮</div>
+</div>
+</div>
+
+<!-- 9. 課税所得計算 -->
+<div class="card" id="c9">
+<div class="card-header" onclick="toggle('c9')">
+<span class="arrow">▶</span>
+<span class="card-title">⑨ 課税所得計算</span>
+<span class="badge b-calc">計算</span>
+<span class="count-badge">~12問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="map-box">課税所得 ＝ 税引前当期純利益
+         ＋ 損金不算入額（会計で費用だが税務でダメ）
+         − 益金不算入額（会計で収益だが税務で非課税）
+         ＋ 益金算入額（会計で収益じゃないが税務で課税）
+         − 損金算入額（会計で費用じゃないが税務でOK）</div>
+<div class="sub-title">よく出る加算・減算項目</div>
+<table class="inner">
+<tr><th>加算（課税所得↑）</th><th>減算（課税所得↓）</th></tr>
+<tr><td>交際費損金不算入</td><td>受取配当金益金不算入</td></tr>
+<tr><td>引当金繰入超過額</td><td></td></tr>
+<tr><td>減価償却超過額</td><td></td></tr>
+</table>
+<div class="point">その他有価証券評価差額金 → 課税所得計算に影響しない（BS純資産直入のため）</div>
+<div class="point">税効果会計の地図と直結 — 加算項目≒将来減算一時差異</div>
+</div>
+</div>
+
+<!-- 10. 有価証券評価 -->
+<div class="card" id="c10">
+<div class="card-header" onclick="toggle('c10')">
+<span class="arrow">▶</span>
+<span class="card-title">⑩ 有価証券の分類と評価</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~10問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="map-box">┌────────────┬──────────────┬──────────────┬──────────────┐
+│ 売買目的    │ 満期保有      │ 子会社・関連  │ その他       │
+├────────────┼──────────────┼──────────────┼──────────────┤
+│ 短期売買    │ 利息もらう    │ 支配・影響力  │ 上記以外全部 │
+├────────────┼──────────────┼──────────────┼──────────────┤
+│ 時価評価    │ 償却原価法    │ 取得原価      │ 時価評価     │
+├────────────┼──────────────┼──────────────┼──────────────┤
+│差額→PL     │ (なし)        │ (なし)        │差額→BS純資産│
+│ (営業外)    │               │               │ (PLに行かない│
+└────────────┴──────────────┴──────────────┴──────────────┘</div>
+<div class="point">子会社株式は上場でも取得原価が原則</div>
+<div class="point">著しい時価下落+回復見込みなし → 全4分類で減損処理（時価評価→PL）</div>
+<div class="sub-title">その他有価証券の純資産直入法</div>
+<div class="map-box">全部純資産直入法：評価益も評価損もBS純資産へ
+部分純資産直入法：評価益→BS純資産、評価損→PL（損益）</div>
+</div>
+</div>
+
+<!-- B RANK -->
+<div class="rank-label rank-b">Bランク — 出たら取りたい（~38問）</div>
+
+<!-- 11. 配当・分配可能額 -->
+<div class="card" id="c11">
+<div class="card-header" onclick="toggle('c11')">
+<span class="arrow">▶</span>
+<span class="card-title">⑪ 配当・分配可能額</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~12問</span>
+<span class="dot" style="background:#378ADD"></span>
+</div>
+<div class="card-body">
+<div class="map-box">分配可能額 ＝ その他資本剰余金 ＋ その他利益剰余金
+           − 自己株式の帳簿価額
+           − その他の調整項目</div>
+<div class="point">資本金・資本準備金・利益準備金は分配不可</div>
+<div class="point">配当時は配当額の1/10を準備金に積む（資本準備金+利益準備金が資本金の1/4に達するまで）</div>
+</div>
+</div>
+
+<!-- 12. 固定資産の表示・分類 -->
+<div class="card" id="c12">
+<div class="card-header" onclick="toggle('c12')">
+<span class="arrow">▶</span>
+<span class="card-title">⑫ 固定資産の表示・分類</span>
+<span class="badge b-know">知識</span>
+<span class="count-badge">~11問</span>
+<span class="dot" style="background:#378ADD"></span>
+</div>
+<div class="card-body">
+<div class="map-box">有形固定資産：建物、機械、土地、建設仮勘定 等
+無形固定資産：のれん、特許権、ソフトウェア 等
+投資その他の資産：投資有価証券、繰延税金資産 等</div>
+<div class="point">繰延資産（株式交付費、社債発行費等）は資産計上し償却</div>
+<div class="trap">研究開発費 → 繰延資産に計上できない（全額費用）</div>
+</div>
+</div>
+
+<!-- 13. 減損処理 -->
+<div class="card" id="c13">
+<div class="card-header" onclick="toggle('c13')">
+<span class="arrow">▶</span>
+<span class="card-title">⑬ 減損処理</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~8問</span>
+<span class="dot" style="background:#378ADD"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">3ステップ</div>
+<div class="map-box">Step 1: 兆候の把握 — 減損の兆候があるか？
+Step 2: 認識の判定 — 割引前将来CFの合計 ＜ 帳簿価額 → 減損を認識
+Step 3: 測定     — 帳簿価額を回収可能価額まで減額
+
+回収可能価額 ＝ MAX（正味売却価額, 使用価値）
+               ← 高い方を採用</div>
+<div class="point">認識判定は「割引前」CF、測定は「割引後」（使用価値） → 2段階で割引の有無が変わる</div>
+<div class="point">減損損失は特別損失（販管費でも営業外でもない）</div>
+<div class="point">日本基準では減損損失の戻入れは行わない</div>
+</div>
+</div>
+
+<!-- 14. 企業結合・のれん -->
+<div class="card" id="c14">
+<div class="card-header" onclick="toggle('c14')">
+<span class="arrow">▶</span>
+<span class="card-title">⑭ 企業結合・のれん</span>
+<span class="badge b-know">知識中心</span>
+<span class="count-badge">~7問</span>
+<span class="dot" style="background:#378ADD"></span>
+</div>
+<div class="card-body">
+<div class="map-box">パーチェス法（取得法）
+＝ 被取得企業の資産・負債を時価で引き継ぐ
+＝ 取得対価 − 被取得企業の純資産時価 ＝ のれん
+
+のれん → 無形固定資産、20年以内で規則的に償却
+負ののれん → 発生年度に一括で利益処理（特別利益）</div>
+<div class="point">持分プーリング法は現在認められていない</div>
+<div class="point">日本基準：のれんは償却＋減損 ／ IFRS：非償却＋減損のみ</div>
+<div class="point">取得企業の株主資本は発行株式の時価総額分だけ増加</div>
+</div>
+</div>
+
+<!-- C RANK -->
+<div class="rank-label rank-c">Cランク — 余裕があれば（~29問）</div>
+
+<!-- 15. セグメント情報 -->
+<div class="card" id="c15">
+<div class="card-header" onclick="toggle('c15')">
+<span class="arrow">▶</span>
+<span class="card-title">⑮ セグメント情報</span>
+<span class="badge b-know">知識</span>
+<span class="count-badge">~11問</span>
+<span class="dot" style="background:#888"></span>
+</div>
+<div class="card-body">
+<div class="map-box">マネジメント・アプローチ
+＝ 経営者が意思決定に使ってる区分で報告する
+ （事業別、地域別 等）
+
+報告セグメントの量的基準（いずれかに該当）：
+・売上高が全セグメント合計の10%以上
+・利益(損失)が10%以上
+・資産が10%以上</div>
+</div>
+</div>
+
+<!-- 16. 外貨建取引 -->
+<div class="card" id="c16">
+<div class="card-header" onclick="toggle('c16')">
+<span class="arrow">▶</span>
+<span class="card-title">⑯ 外貨建取引</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~6問</span>
+<span class="dot" style="background:#888"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">二取引基準（にとりひききじゅん）</div>
+<div class="map-box">仕入取引と決済取引を別々に処理する
+
+取引日：取引日レートで換算 → 売掛金/買掛金を計上
+決算日：未決済の外貨建金銭債権債務を決算日レートで換算
+      → 差額は為替差損益（PL）</div>
+<div class="point">一取引基準との違い：一取引基準は仕入と決済を一体で処理</div>
+<div class="point">通算の損益は一取引でも二取引でも同じ</div>
+<div class="point">外貨建有価証券の換算は分類ごとに異なる（売買目的→決算日レート等）</div>
+</div>
+</div>
+
+<!-- 17. リース -->
+<div class="card" id="c17">
+<div class="card-header" onclick="toggle('c17')">
+<span class="arrow">▶</span>
+<span class="card-title">⑰ リース（FL/OL）</span>
+<span class="badge b-calc">計算中心</span>
+<span class="count-badge">~5問</span>
+<span class="dot" style="background:#888"></span>
+</div>
+<div class="card-body">
+<div class="map-box">ファイナンス・リース(FL)
+＝ 実質的に購入と同じ → 資産・負債を計上（オンバランス）
+  判定：①ノンキャンセラブル ②フルペイアウト → 両方満たすとFL
+
+オペレーティング・リース(OL)
+＝ FL以外 → 賃貸借処理（リース料を費用計上のみ）</div>
+<div class="sub-title">FLの会計処理</div>
+<div class="map-box">リース開始時：
+  リース資産 ＝ リース料総額の現在価値 or 見積現金購入価額の低い方
+  リース債務 ＝ 同額
+
+毎期のリース料支払い：
+  元本返済部分 ＋ 支払利息部分 に分解（利息法）
+  → 利息は残債 × 利子率</div>
+<div class="point">FLの方がOLより初年度の費用は大きい（減価償却+利息 vs リース料定額）</div>
+</div>
+</div>
+
+<!-- 18. 包括利益 -->
+<div class="card" id="c18">
+<div class="card-header" onclick="toggle('c18')">
+<span class="arrow">▶</span>
+<span class="card-title">⑱ 包括利益・OCI</span>
+<span class="badge b-know">知識</span>
+<span class="count-badge">~4問</span>
+<span class="dot" style="background:#888"></span>
+</div>
+<div class="card-body">
+<div class="map-box">包括利益 ＝ 当期純利益 ＋ その他の包括利益(OCI)
+
+OCIの主な項目（PLを通らずBS純資産に直入されるもの）：
+ ・その他有価証券評価差額金
+ ・為替換算調整勘定
+ ・退職給付に係る調整額（未認識数理差異＋未認識過去勤務費用）
+ ・繰延ヘッジ損益</div>
+<div class="point">OCIは「投資の期待に対比される事実がまだ生じていない部分」</div>
+</div>
+</div>
+
+<!-- 19. 株主資本変動 -->
+<div class="card" id="c19">
+<div class="card-header" onclick="toggle('c19')">
+<span class="arrow">▶</span>
+<span class="card-title">⑲ 株主資本等変動計算書</span>
+<span class="badge b-calc">計算</span>
+<span class="count-badge">~3問</span>
+<span class="dot" style="background:#888"></span>
+</div>
+<div class="card-body">
+<div class="map-box">株主資本の増減要因：
+  ＋ 当期純利益
+  ＋ 新株発行
+  − 配当
+  − 自己株式の取得
+  ＋ 自己株式の処分（処分差額は資本剰余金）
+
+注意：以下は株主資本に含まれない
+  ・新株予約権 → 純資産だが株主資本の外
+  ・その他の包括利益累計額 → 純資産だが株主資本の外</div>
+</div>
+</div>
+
+<!-- D RANK -->
+<div class="rank-label rank-d">Dランク — 捨て</div>
+
+<div class="card" id="c20">
+<div class="card-header" onclick="toggle('c20')">
+<span class="arrow">▶</span>
+<span class="card-title">⑳ 製造原価計算 / MM理論 / M&A合併比率 / 配当政策</span>
+<span class="badge b-calc">—</span>
+<span class="count-badge">~5問</span>
+<span class="dot" style="background:#888"></span>
+</div>
+<div class="card-body">
+<div class="point">合計5問以下。出題率も極めて低い。ここに時間を使うより上位テーマの定着に回す。</div>
+</div>
+</div>
+
+<!-- ============================================ -->
+<!-- 科目II 非会計分野 -->
+<!-- ============================================ -->
+
+<div style="margin-top:24px">
+<span class="kamoku-label kamoku-ii">科目II — 非会計分野（201問）</span>
+
+<div class="rank-label rank-a">Aランク</div>
+
+<div class="card" id="c21">
+<div class="card-header" onclick="toggle('c21')">
+<span class="arrow">▶</span>
+<span class="card-title">㉑ 企業価値評価 DCF</span>
+<span class="badge b-calc">計算多め</span>
+<span class="count-badge">~61問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">主要な評価手法</div>
+<div class="map-box">【DCF法】6ステップ
+  ① FCF算出（営業CF − 設備投資）← 営業利益じゃない！
+  ② 割引率 = WACC
+  ③ 企業価値(EV) = FCFの現在価値合計 + ターミナルバリュー
+  ④ 株主価値 = EV − 有利子負債
+  ⑤ 1株当たり価値 = 株主価値 ÷ 発行済株式数
+
+【DDM（配当割引モデル）】
+  株式価値 = D₁ ÷ (r − g)
+  D₁=来期配当, r=要求利回り, g=成長率
+
+【RIM（残余利益モデル）】
+  株式価値 = BPS + Σ(当期残余利益の現在価値)
+  残余利益 = 当期純利益 − 株主資本コスト × 期首自己資本</div>
+<div class="point">DCFの③→④：企業価値から負債を引くのが株主価値（順番注意）</div>
+<div class="sub-title">その他の頻出フレームワーク</div>
+<div class="map-box">NPV（正味現在価値）＝ CF現在価値合計 − 初期投資 → 0以上なら投資OK
+IRR（内部収益率）＝ NPV=0となる割引率 → WACCより高ければ投資OK
+PPM（BCGマトリクス）＝ 市場成長率 × 相対シェアで4象限
+5フォース、VRIO、コーポレートガバナンス</div>
+</div>
+</div>
+
+<div class="rank-label rank-b">Bランク</div>
+
+<div class="card" id="c22">
+<div class="card-header" onclick="toggle('c22')">
+<span class="arrow">▶</span>
+<span class="card-title">㉒ 財務分析と企業会計</span>
+<span class="badge b-know">知識多め</span>
+<span class="count-badge">~42問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="map-box">【会計基準と開示制度】
+・有価証券報告書（金商法で義務）
+・決算短信（取引所ルール、速報性重視）
+・統合報告書（任意）
+・KAM（監査上の主要な検討事項）
+
+【機関設計】
+・監査役会設置会社 / 指名委員会等設置会社 / 監査等委員会設置会社
+
+【その他】エージェンシー理論、付加価値分析</div>
+</div>
+</div>
+
+<div class="card" id="c23">
+<div class="card-header" onclick="toggle('c23')">
+<span class="arrow">▶</span>
+<span class="card-title">㉓ CF分析</span>
+<span class="badge b-calc">計算多め</span>
+<span class="count-badge">~32問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="map-box">CF計算書の3区分：
+  営業CF — 本業の稼ぎ（間接法で作成）
+  投資CF — 設備投資・有価証券売買
+  財務CF — 借入・増資・配当
+
+【間接法の調整】
+税引前当期純利益
+  ＋ 減価償却費（非資金項目）
+  ＋ 引当金の増加
+  − 売上債権の増加（運転資本の増加）
+  ＋ 仕入債務の増加
+  ...
+＝ 営業CF
+
+FCF ＝ 営業CF − 設備投資
+← 企業が自由に使えるキャッシュ</div>
+<div class="point point-red">FCFの起点は「営業CF」であって「営業利益」ではない</div>
+</div>
+</div>
+
+<div class="card" id="c24">
+<div class="card-header" onclick="toggle('c24')">
+<span class="arrow">▶</span>
+<span class="card-title">㉔ 財務分析（ROE・BEP等）</span>
+<span class="badge b-calc">計算多め</span>
+<span class="count-badge">~32問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="map-box">ROE 3分解（デュポン分析）
+ROE ＝ 売上高利益率 × 総資産回転率 × 財務レバレッジ
+    ＝ (NI/Sales) × (Sales/Assets) × (Assets/Equity)
+
+BEP分析（損益分岐点）
+BEP売上高 ＝ 固定費 ÷ (1 − 変動費率)
+         ＝ 固定費 ÷ 限界利益率
+
+安全余裕率 ＝ (実際売上 − BEP売上) ÷ 実際売上
+
+サステイナブル成長率 ＝ ROE × (1 − 配当性向)</div>
+<div class="sub-title">回転率系</div>
+<div class="map-box">売上債権回転率 ＝ 売上高 ÷ 売上債権
+棚卸資産回転率 ＝ 売上原価 ÷ 棚卸資産
+CCC ＝ 売上債権回転日数 ＋ 棚卸資産回転日数 − 仕入債務回転日数</div>
+</div>
+</div>
+
+<div class="card" id="c25">
+<div class="card-header" onclick="toggle('c25')">
+<span class="arrow">▶</span>
+<span class="card-title">㉕ CAPM / WACC</span>
+<span class="badge b-calc">計算</span>
+<span class="count-badge">~24問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="map-box">CAPM（Capital Asset Pricing Model / 資本資産評価モデル）
+  E(R) ＝ Rf ＋ β ×（Rm − Rf）
+  Rf=無リスク金利, Rm=市場期待収益率, β=感応度
+
+WACC（Weighted Average Cost of Capital / 加重平均資本コスト）
+  WACC ＝ (E/V)×Re ＋ (D/V)×Rd×(1−t)
+                             ↑ ここに(1-t)！
+  E=株主資本, D=負債, V=E+D, Re=株主資本コスト, Rd=負債コスト, t=税率
+
+β（ベータ）
+  β ＝ Cov(Ri,Rm) ÷ Var(Rm)
+  β>1 → 市場より変動大、β<1 → 市場より変動小</div>
+<div class="point point-red">WACC：(1-t)は負債コストに掛ける（利息の節税効果）</div>
+</div>
+</div>
+
+<div class="card" id="c26">
+<div class="card-header" onclick="toggle('c26')">
+<span class="arrow">▶</span>
+<span class="card-title">㉖ IFRS</span>
+<span class="badge b-know">知識</span>
+<span class="count-badge">~6問</span>
+<span class="dot" style="background:#378ADD"></span>
+</div>
+<div class="card-body">
+<div class="map-box">日本基準とIFRSの主な違い：
+・のれん：日本=償却+減損 / IFRS=非償却+減損のみ
+・包括利益：IFRS=1計算書方式も2計算書方式も可
+・原則主義（IFRS） vs 細則主義（日本基準）</div>
+</div>
+</div>
+
+</div><!-- 科目II非会計 end -->
+
+</div><!-- 科目II end -->
+
+<!-- ============================================ -->
+<!-- 科目 III -->
+<!-- ============================================ -->
+<div class="section" style="margin-top:32px">
+<span class="kamoku-label kamoku-iii">科目III — 経済・金融（推定690問）</span>
+
+<div class="rank-label rank-a">Aランク</div>
+
+<div class="card" id="c31">
+<div class="card-header" onclick="toggle('c31')">
+<span class="arrow">▶</span>
+<span class="card-title">㉗ マクロ経済分析</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~231問</span>
+<span class="dot" style="background:#378ADD"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">中核フレームワーク</div>
+<div class="map-box">【国民所得決定】
+  Y = C + I + G + (X − M)
+  乗数効果：ΔY = (1/(1−c)) × ΔG  （c=限界消費性向）
+
+【IS-LM分析】
+  IS曲線：財市場の均衡（右下がり）
+  LM曲線：貨幣市場の均衡（右上がり）
+  → 交点が均衡国民所得と均衡利子率
+
+  財政政策（G↑）→ IS右シフト → Y↑ r↑ （クラウディングアウト発生）
+  金融政策（M↑）→ LM右シフト → Y↑ r↓
+
+【AD-AS分析】
+  AD曲線：総需要（右下がり）
+  AS曲線：総供給（短期は右上がり、長期は垂直）</div>
+<div class="sub-title">景気循環・物価</div>
+<div class="map-box">RBC（実物的景気循環）＝ 技術ショックが原因、市場は効率的
+ケインジアン ＝ 需要不足が原因、政府介入が必要
+
+ラスパイレス指数 ＝ 基準年の数量ウエイト（CPIに使用）
+パーシェ指数 ＝ 比較年の数量ウエイト（GDPデフレーターに使用）</div>
+<div class="point">IS-LMとMundell-Flemingを混同しない（MFは開放経済版）</div>
+</div>
+</div>
+
+<div class="card" id="c32">
+<div class="card-header" onclick="toggle('c32')">
+<span class="arrow">▶</span>
+<span class="card-title">㉘ ミクロ経済分析</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~170問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">消費者理論</div>
+<div class="map-box">効用最大化：MRS（限界代替率）＝ 価格比
+  → 無差別曲線と予算制約線の接点
+
+需要の価格弾力性
+  ＝ 需要量の変化率 ÷ 価格の変化率
+  弾力性 > 1：価格↑ → 売上↓
+  弾力性 < 1：価格↑ → 売上↑</div>
+<div class="sub-title">生産者理論</div>
+<div class="map-box">費用の種類：
+  FC（Fixed Cost / 固定費用）
+  VC（Variable Cost / 変動費用）
+  TC（Total Cost / 総費用）= FC + VC
+  AC（Average Cost / 平均費用）= TC ÷ Q
+  AVC（Average Variable Cost / 平均変動費用）= VC ÷ Q
+  MC（Marginal Cost / 限界費用）= ΔTC ÷ ΔQ
+
+利潤最大化条件：MR = MC
+  （MRを最大化するのではない！）</div>
+<div class="sub-title">市場構造</div>
+<div class="map-box">完全競争：Price Taker（価格への影響力なし）
+         長期均衡 → 超過利潤ゼロ
+独占：MR = MC で生産量決定、P > MC
+寡占：クールノー競争（数量）/ ベルトラン競争（価格）</div>
+<div class="sub-title">情報の経済学</div>
+<div class="map-box">逆選択（Adverse Selection）：取引前の情報格差
+  → 対策：シグナリング（情報優位側）、スクリーニング（情報劣位側）
+モラルハザード：取引後の行動の問題
+  → 対策：インセンティブ設計</div>
+<div class="point point-red">スクリーニングは情報劣位側（不利な側）が行う</div>
+<div class="point">弾力性が高い → 税負担を逃れやすい → 負担は小さくなる</div>
+<div class="point">関税 → 消費者余剰の減少 > 関税収入の増加 → 総余剰は減少</div>
+</div>
+</div>
+
+<div class="card" id="c33">
+<div class="card-header" onclick="toggle('c33')">
+<span class="arrow">▶</span>
+<span class="card-title">㉙ 定量分析</span>
+<span class="badge b-calc">計算多め</span>
+<span class="count-badge">~107問</span>
+<span class="dot" style="background:#EF9F27"></span>
+</div>
+<div class="card-body">
+<div class="sub-title">確率・統計</div>
+<div class="map-box">期待値 E(X) ＝ Σ xi × P(xi)
+分散 Var(X) ＝ E(X²) − [E(X)]²
+標準偏差 σ ＝ √Var(X)
+
+正規分布：68-95-99.7ルール
+  ± 1σ → 68.3%
+  ± 2σ → 95.4%
+  ± 3σ → 99.7%</div>
+<div class="sub-title">回帰分析</div>
+<div class="map-box">単回帰：Y = α + βX + ε
+  β ＝ Cov(X,Y) ÷ Var(X)
+  R² ＝ 決定係数（説明力、0〜1）
+
+t検定：係数が有意かどうか
+  t値 ＝ 推定値 ÷ 標準誤差
+  |t値| > 臨界値 → 帰無仮説を棄却</div>
+<div class="sub-title">仮説検定</div>
+<div class="map-box">帰無仮説(H₀)：差がない / 効果がない
+対立仮説(H₁)：差がある / 効果がある
+
+第1種の過誤(α)：H₀が正しいのに棄却 → 偽陽性
+第2種の過誤(β)：H₀が間違ってるのに採択 → 偽陰性</div>
+</div>
+</div>
+
+<div class="rank-label rank-b">Bランク（定着済 — 維持）</div>
+
+<div class="card" id="c34">
+<div class="card-header" onclick="toggle('c34')">
+<span class="arrow">▶</span>
+<span class="card-title">㉚ 国際貿易・国際金融</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~92問</span>
+<span class="dot" style="background:#639922"></span>
+</div>
+<div class="card-body">
+<div class="map-box">【貿易理論】
+リカード比較優位 ＝ 相対的に得意な財に特化して貿易
+ヘクシャー・オリーン ＝ 豊富な生産要素を集約的に使う財を輸出
+
+【Mundell-Fleming（開放経済のIS-LM）】
+変動相場制＋資本移動自由：
+  財政政策 → 無効（円高で相殺）
+  金融政策 → 有効
+
+固定相場制＋資本移動自由：
+  財政政策 → 有効
+  金融政策 → 無効
+
+【購買力平価(PPP)】
+絶対的PPP：為替レート = 自国物価 ÷ 外国物価
+相対的PPP：為替レート変化率 = インフレ率の差
+  → 相対的PPPの下では実質為替レートの変化率 = ゼロ</div>
+<div class="point">MFモデルは「変動+金融」「固定+財政」がそれぞれ有効と覚える</div>
+</div>
+</div>
+
+<div class="card" id="c35">
+<div class="card-header" onclick="toggle('c35')">
+<span class="arrow">▶</span>
+<span class="card-title">㉛ 金融市場と財政</span>
+<span class="badge b-both">知識+計算</span>
+<span class="count-badge">~90問</span>
+<span class="dot" style="background:#639922"></span>
+</div>
+<div class="card-body">
+<div class="map-box">【金融政策の手段】
+公開市場操作（国債の売買）
+政策金利の変更
+準備率操作
+
+【財政政策】
+自動安定化装置（ビルトイン・スタビライザー）
+  ＝ 累進課税・社会保障が景気を自動的に安定化
+
+【金利の期間構造】
+純粋期待仮説：長期金利 = 将来の短期金利の平均
+流動性プレミアム仮説：長期 = 短期平均 + プレミアム
+市場分断仮説：短期と長期は別々の市場</div>
+</div>
+</div>
+
+</div><!-- 科目III end -->
+
+<!-- ============================================ -->
+<!-- フェーズ -->
+<!-- ============================================ -->
+<div class="phase-section">
+<div class="section-head">23日間の戦略 — 3フェーズ</div>
+
+<div class="phase-card" style="border-left:4px solid #E24B4A">
+<h3>Phase 2B：地図 → 過去問（知識）</h3>
+<div class="dates">4/4〜4/9（6日間）</div>
+<p>テーマの構造地図を先に頭に入れてから、過去問に入る。<br>会計3分野（S・Aランク）を最優先。1日1〜2テーマの地図 + 知識問題15問。</p>
+</div>
+
+<div class="phase-card" style="border-left:4px solid #EF9F27">
+<h3>Phase 3A：弱点潰し + 模試①</h3>
+<div class="dates">4/10〜4/13（4日間）</div>
+<p>Phase 2Bで間違えた問題を再挑戦。ミクロ経済の弱点復習。模試①で通し練習し、本番で危ない分野を特定する。</p>
+</div>
+
+<div class="phase-card" style="border-left:4px solid #378ADD">
+<h3>Phase 3B+C：計算 + 最終仕上げ</h3>
+<div class="dates">4/14〜4/25（12日間）</div>
+<p>計算問題103問に集中。構造理解があれば公式も覚えやすい。模試②→最終反復。</p>
+</div>
+</div>
+
+<div class="footer">
+最終更新：2026/4/3 ｜ 試験日：4/26 ｜ 残り23日
+</div>
+
+</div><!-- container end -->
+
+<script>
+function toggle(id){
+  document.getElementById(id).classList.toggle('open');
+}
+</script>
+</body>
+</html>
